@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Open Sans';
-    src: url('dist/fonts/Open/OpenSansRegular.eot');
-    src: url('dist/fonts/Open/OpenSansRegular.eot') format('embedded-opentype'),
-         url('dist/fonts/Open/OpenSansRegular.woff2') format('woff2'),
-         url('dist/fonts/Open/OpenSansRegular.woff') format('woff'),
-         url('dist/fonts/Open/OpenSansRegular.ttf') format('truetype'),
-         url('dist/fonts/Open/OpenSansRegular.svg#OpenSansRegular') format('svg');
+    src: url('../fonts/Open/OpenSansRegular.eot');
+    src: url('../fonts/Open/OpenSansRegular.eot') format('embedded-opentype'),
+         url('../fonts/Open/OpenSansRegular.woff2') format('woff2'),
+         url('../fonts/Open/OpenSansRegular.woff') format('woff'),
+         url('../fonts/Open/OpenSansRegular.ttf') format('truetype'),
+         url('../fonts/Open/OpenSansRegular.svg#OpenSansRegular') format('svg');
 }
 
 body,
