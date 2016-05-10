@@ -30,7 +30,6 @@ img {
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   width: 100% \9;
@@ -766,6 +765,7 @@ hr {
 .show {
   display: block !important;
 }
+/* Hide element */
 .invisible {
   visibility: hidden;
 }
