@@ -46,6 +46,7 @@ code {
 
 ul,
 ol {
+    list-style: none;
     margin: 1em 0;
     padding: 0 0 0 20px;
 }
