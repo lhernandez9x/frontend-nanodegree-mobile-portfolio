@@ -1,6 +1,18 @@
 CACHE MANIFEST
+
 index.html
 dist/css/style.min.css
 dist/js/perfmatters.min.js
-dist/images/
-dist/fonts/
+
+NETWORK:
+*
+
+CACHE:
+
+dist/images/bg.jpg
+dist/images/logo.png
+dist/fonts/Oswald/OswaldRegular.eot
+dist/fonts/Oswald/OswaldRegular.svg
+dist/fonts/Oswald/OswaldRegular.ttf
+dist/fonts/Oswald/OswaldRegular.woff
+dist/fonts/Oswald/OswaldRegular.woff2
