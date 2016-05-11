@@ -65,6 +65,21 @@
         .socialNavbar img {
             padding: 1% 5%;
         }
+        @media only screen and (max-width:640px) {
+            header{
+                background: #054d7f;
+            }
+            .headerTitle h1{
+                font-size:3em;
+            }
+            .headerTitle h2{
+                font-size: 2em;
+            }
+            .socialNavbar img{
+                padding:5% 1%;
+                width: 64px;
+            }
+        }
     </style>
 </head>
 
@@ -121,7 +136,7 @@
     </div>
 
     <footer class="container">
-        <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
+        <p class="g8">&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
         <link href="dist/css/grid.min.css" rel="stylesheet">
         <link href="dist/css/style.min.css" rel="stylesheet">
