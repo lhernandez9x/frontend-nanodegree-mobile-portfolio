@@ -444,38 +444,27 @@ var resizePizzas = function(size) {
     changeSliderLabel(size);
 
     // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-    function determineDx(elem, size) {
-        var oldWidth = elem.offsetWidth;
-        var windowWidth = document.getElementById("randomPizzas").offsetWidth;
-        var oldSize = oldWidth / windowWidth;
-
-        // Optional TODO: change to 3 sizes? no more xl?
-        // Changes the slider value to a percent width
-        function sizeSwitcher(size) {
-            switch (size) {
-                case "1":
-                    return 0.25;
-                case "2":
-                    return 0.3333;
-                case "3":
-                    return 0.5;
-                default:
-                    console.log("bug in sizeSwitcher");
-            }
+    function sizeSwitcher(size) {
+        switch (size) {
+            case "1":
+                return 25;
+            case "2":
+                return 33;
+            case "3":
+                return 50;
+            default:
+                console.log("bug in sizeSwitcher");
         }
-
-        var newSize = sizeSwitcher(size);
-        var dx = (newSize - oldSize) * windowWidth;
-
-        return dx;
     }
+    var newSize = sizeSwitcher(size);
 
     // Iterates through pizza elements on the page and changes their widths
     function changePizzaSizes(size) {
-        for (var i = 0; i < document.getElementsByClassName("randomPizzaContainer").length; i++) {
-            var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[i], size);
-            var newwidth = (document.getElementsByClassName("randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-            document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
+        var randPizzaCont = document.getElementsByClassName("randomPizzaContainer")
+        for (var i = 0; i < randPizzaCont.length; i++) {
+            //var dx = determineDx(randPizzaCont[i], size);
+            //var newwidth = (randPizzaCont[i].scrollWidth + dx) + 'px';
+            randPizzaCont[i].style.width = newSize + '%';
         }
     }
 
@@ -524,29 +513,29 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
-    
+
     // This repeats makes secondItems.lengtth = items.length. secondItems is made of the five numbers (i % 5) produces. 
     //Code was pulled from http://stackoverflow.com/questions/12503146/create-an-array-with-same-element-repeated-multiple-times-in-javascript - posted by revaxarts.
-    
-    Array.prototype.fill = function(val){
+
+    Array.prototype.fill = function(val) {
         var len = this.length;
-        if(len < val){
-            for(var i = val - 1 - len; i >= 0; i --){
-                this[i+1] = this[i % 1];
+        if (len < val) {
+            for (var i = val - 1 - len; i >= 0; i--) {
+                this[i + 1] = this[i % 1];
             }
         }
         return this;
     }
-    
+
     var items = document.getElementsByClassName('mover'),
         secondItems = [0, 1, 2, 3, 4],
         moduloItems = [secondItems.fill(secondItems.length + items.length - 1)],
         phaseOne = document.body.scrollTop / 1250;
-    
+
     for (var i = 0, j = 0; i < items.length, j < secondItems.length; i++, j++) {
-        var phase = Math.sin(phaseOne + j);
-        //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-        items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+        var phase = Math.sin(phaseOne + j),
+            slideLeft = -items[i].basicLeft + 1000 * phase + 'px';
+        items[i].style.transform = 'translateX(' + slideLeft + ') translateZ(0)';
     }
 
     // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -564,10 +553,10 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     //creates columns and rows, from window width and height, to calculate number of pizzas needed to fill screen.
     var cols = Math.floor(window.innerWidth / 200),
-        rows = Math.floor(window.innerHeight/230),
+        rows = Math.floor(window.innerHeight / 230),
         s = 256,
         totalPizzas = cols * rows;
     for (var i = 0; i < totalPizzas; i++) {
@@ -576,7 +565,7 @@ document.addEventListener('DOMContentLoaded', function() {
         elem.src = "dist/images/pizza-sm.png";
         elem.style.height = "100px";
         elem.style.width = "73.333px";
-        elem.basicLeft = (i % cols) * s ;
+        elem.basicLeft = (i % cols) * s;
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
         document.getElementById("movingPizzas1").appendChild(elem);
     }
