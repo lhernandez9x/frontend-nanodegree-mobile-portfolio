@@ -444,12 +444,13 @@ var resizePizzas = function(size) {
     changeSliderLabel(size);
 
     // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+    // Uses percentage fop size. 
     function sizeSwitcher(size) {
         switch (size) {
             case "1":
                 return 25;
             case "2":
-                return 33;
+                return 33.33;
             case "3":
                 return 50;
             default:
@@ -459,11 +460,10 @@ var resizePizzas = function(size) {
     var newSize = sizeSwitcher(size);
 
     // Iterates through pizza elements on the page and changes their widths
+    
     function changePizzaSizes(size) {
         var randPizzaCont = document.getElementsByClassName("randomPizzaContainer")
         for (var i = 0; i < randPizzaCont.length; i++) {
-            //var dx = determineDx(randPizzaCont[i], size);
-            //var newwidth = (randPizzaCont[i].scrollWidth + dx) + 'px';
             randPizzaCont[i].style.width = newSize + '%';
         }
     }
@@ -514,7 +514,7 @@ function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
 
-    // This repeats makes secondItems.lengtth = items.length. secondItems is made of the five numbers (i % 5) produces. 
+    // This repeats secondItems.length = items.length. The array secondItems is made of the five numbers (i % 5) produces.
     //Code was pulled from http://stackoverflow.com/questions/12503146/create-an-array-with-same-element-repeated-multiple-times-in-javascript - posted by revaxarts.
 
     Array.prototype.fill = function(val) {
@@ -527,11 +527,13 @@ function updatePositions() {
         return this;
     }
 
+    // Variables used in for loop to iterate through background sliding pizzas.
     var items = document.getElementsByClassName('mover'),
         secondItems = [0, 1, 2, 3, 4],
         moduloItems = [secondItems.fill(secondItems.length + items.length - 1)],
         phaseOne = document.body.scrollTop / 1250;
 
+    // This iterates through background sliding pizzas and changes the value of translateX for each pizza.
     for (var i = 0, j = 0; i < items.length, j < secondItems.length; i++, j++) {
         var phase = Math.sin(phaseOne + j),
             slideLeft = -items[i].basicLeft + 1000 * phase + 'px';
@@ -554,11 +556,13 @@ window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
 
-    //creates columns and rows, from window width and height, to calculate number of pizzas needed to fill screen.
+    //This creates columns and rows, from window width and height, to calculate number of pizzas needed to fill screen.
     var cols = Math.floor(window.innerWidth / 200),
         rows = Math.floor(window.innerHeight / 230),
         s = 256,
         totalPizzas = cols * rows;
+    
+    //This iterates through the newly formed columns and rows and creates the sliding pizzas.
     for (var i = 0; i < totalPizzas; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
