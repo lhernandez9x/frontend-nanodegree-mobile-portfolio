@@ -17,7 +17,8 @@
             src: url('dist/fonts/Oswald/OswaldRegular.eot');
             src: url('dist/fonts/Oswald/OswaldRegular.eot') format('embedded-opentype'), url('dist/fonts/Oswald/OswaldRegular.woff2') format('woff2'), url('dist/fonts/Oswald/OswaldRegular.woff') format('woff'), url('dist/fonts/Oswald/OswaldRegular.ttf') format('truetype'), url('dist/fonts/Oswald/OswaldRegular.svg#OswaldRegular') format('svg');
         }
-        header{
+        
+        header {
             max-width: 45em;
             margin: 0 20%;
             padding: 0 0.5em;
@@ -41,6 +42,24 @@
             font-weight: normal;
         }
         
+        a {
+            color: #12C;
+        }
+        
+        a:visited {
+            color: #61C;
+        }
+        
+        a:focus {
+            outline: thin dotted;
+        }
+        
+        a:hover,
+        a:active {
+            color: #c00;
+            outline: 0;
+        }
+        
         @media only screen and (max-width: 480px) {
             header p {
                 padding-left: 4.5em;
@@ -51,7 +70,7 @@
 
 <body>
     <header>
-        <a href="/"><img src="dist/images/profilepic.jpg"></a>
+        <a href="#"><img src="dist/images/profilepic.jpg"></a>
         <p>Cameron Pittman
             <br><span>Course Developer</span></p>
     </header>
@@ -97,21 +116,21 @@
         <p class="g8">&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
 </body>
-    <link href="dist/css/grid.min.css" rel="stylesheet">
-    <link href="dist/css/style.min.css" rel="stylesheet">
-    <script src="http://www.google-analytics.com/analytics.js"></script>
-    <script>
-        (function(w, g) {
-            w['GoogleAnalyticsObject'] = g;
-            w[g] = w[g] || function() {
-                (w[g].q = w[g].q || []).push(arguments)
-            };
-            w[g].l = 1 * new Date();
-        })(window, 'ga');
+<link href="dist/css/grid.min.css" rel="stylesheet">
+<link href="dist/css/style.min.css" rel="stylesheet">
+<script src="http://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(w, g) {
+        w['GoogleAnalyticsObject'] = g;
+        w[g] = w[g] || function() {
+            (w[g].q = w[g].q || []).push(arguments)
+        };
+        w[g].l = 1 * new Date();
+    })(window, 'ga');
 
-        // Optional TODO: replace with your Google Analytics profile ID.
-        ga('create', 'UA-XXXX-Y');
-        ga('send', 'pageview');
-    </script>
+    // Optional TODO: replace with your Google Analytics profile ID.
+    ga('create', 'UA-XXXX-Y');
+    ga('send', 'pageview');
+</script>
 
 </html>
