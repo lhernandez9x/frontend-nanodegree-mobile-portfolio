@@ -7,7 +7,7 @@
     <meta name="description" content=" El Paso Web Developer, Frontend Web Developer, Website Optimization ">
     <meta name="author" content=" Lorenzo Hernandez Jr.">
     <title>Lorenzo Hernandez: Portfolio</title>
-    
+
     <link href="dist/css/print.min.css" rel="stylesheet" media="print">
 
     <script src="dist/js/perfmatters.min.js" async></script>
@@ -17,67 +17,40 @@
             src: url('dist/fonts/Oswald/OswaldRegular.eot');
             src: url('dist/fonts/Oswald/OswaldRegular.eot') format('embedded-opentype'), url('dist/fonts/Oswald/OswaldRegular.woff2') format('woff2'), url('dist/fonts/Oswald/OswaldRegular.woff') format('woff'), url('dist/fonts/Oswald/OswaldRegular.ttf') format('truetype'), url('dist/fonts/Oswald/OswaldRegular.svg#OswaldRegular') format('svg');
         }
-        body {
-            background: #fff;
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.61;
-            font-weight: 400;
+        
+        header,
+        footer{
+            max-width: 45em;
+            margin: 0 auto;
         }
         
         header {
-            background-image: url(dist/images/bg.jpg);
-            background-size: cover;
-            height: 100vh;
-            width: 100%;
-            color: #fff;
-            font-family: 'Oswald', sans-serif;
-            text-align: center;
+            padding: 0 0.5em;
+            color: #C90B0B;
         }
         
-        .logo {
-            padding: 2% 0;
+        header img {
+            border-radius: 40px;
+            float: left;
         }
         
-        .headerTitle {
-            padding: 12% 0 5%
+        header p {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding-left: 4em;
         }
         
-        .headerTitle h1,
-        .headerTitle h2 {
-            margin: 0;
+        header p span {
+            font-size: 0.8em;
+            font-weight: normal;
         }
         
-        .headerTitle h1 {
-            font-size: 5em;
-        }
-        
-        .headerTitle h2 {
-            font-size: 3em;
-            font-weight: 100;
-        }
-        
-        .socialNavbar {
-            padding: 0 5%;
-            width: 90%;
-        }
-        
-        .socialNavbar img {
-            padding: 1% 5%;
-        }
-        @media only screen and (max-width:640px) {
-            header{
-                background: #054d7f;
+        @media only screen and (max-width: 480px) {
+            body {
+                font-size: 12px;
             }
-            .headerTitle h1{
-                font-size:3em;
-            }
-            .headerTitle h2{
-                font-size: 2em;
-            }
-            .socialNavbar img{
-                padding:5% 1%;
-                width: 64px;
+            header p {
+                padding-left: 4.5em;
             }
         }
     </style>
@@ -85,19 +58,11 @@
 
 <body>
     <header>
-        <img class="logo" src="dist/images/logo.png" alt="Logo for site">
-        <div class="headerTitle">
-            <h1> Front-End Web Developer &bull; UX Practicioner</h1>
-            <h2>Building Awesome Web Experiences</h2>
-        </div>
-        <div class="socialNavbar">
-            <a href="http://linkedin.com/in/larryhernandez"><img src="dist/images/linkedin-icon.png" width="90px"></a>
-            <a href="http://twitter.com/lhernandez9x"><img src="dist/images/twitter-icon.png" width="90px"></a>
-            <a href="http://github.com/lhernandez9x"><img src="dist/images/github.png" width="90px"></a>
-            <a href="http://facebook.com/lhernandez9x"><img src="dist/images/facebook-icon.png" width="90px"></a>
-        </div>
+        <a href="/"><img src="dist/images/profilepic.jpg"></a>
+        <p>Cameron Pittman
+            <br><span>Course Developer</span></p>
     </header>
-    
+
     <div class="container">
         <div class="hero">
             <strong>I love web development!</strong> This is a template for a simple portfolio. I decided to use it to showcase a few Udacity courses I've taken and some teaching work, but you can use it to showcase any kind of project that you want the world to see :)
@@ -138,22 +103,22 @@
     <footer class="container">
         <p class="g8">&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
-        <link href="dist/css/grid.min.css" rel="stylesheet">
-        <link href="dist/css/style.min.css" rel="stylesheet">
-        <script src="http://www.google-analytics.com/analytics.js"></script>
-        <script>
-            (function(w, g) {
-                w['GoogleAnalyticsObject'] = g;
-                w[g] = w[g] || function() {
-                    (w[g].q = w[g].q || []).push(arguments)
-                };
-                w[g].l = 1 * new Date();
-            })(window, 'ga');
+    <link href="dist/css/grid.min.css" rel="stylesheet">
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <script src="http://www.google-analytics.com/analytics.js"></script>
+    <script>
+        (function(w, g) {
+            w['GoogleAnalyticsObject'] = g;
+            w[g] = w[g] || function() {
+                (w[g].q = w[g].q || []).push(arguments)
+            };
+            w[g].l = 1 * new Date();
+        })(window, 'ga');
 
-            // Optional TODO: replace with your Google Analytics profile ID.
-            ga('create', 'UA-XXXX-Y');
-            ga('send', 'pageview');
-        </script>
+        // Optional TODO: replace with your Google Analytics profile ID.
+        ga('create', 'UA-XXXX-Y');
+        ga('send', 'pageview');
+    </script>
 </body>
 
 </html>
