@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
   updatePositions();
 }
   ```
-I added the ability to get the users window size and create enough pizzas to only fill screen, instead of creating 200 pizzas. I did this by changing a few lines:
+I added the ability to get the users window size and create enough pizzas to only fill the screen, instead of creating 200 pizzas. I did this by changing a few lines:
 
   ```
   var cols = Math.floor(window.innerWidth / 200),
@@ -88,7 +88,7 @@ I added the ability to get the users window size and create enough pizzas to onl
 });
   ```
 
-3. By running console.log on some of the calculations I found that some calculations were unnecessary. I cahnged these lines of code from:
+3. By running console.log on some of the calculations I found that some calculations were unnecessary. I changed these lines of code from:
 
   ```
   var items = document.querySelectorAll('.mover');
@@ -128,9 +128,9 @@ I added the ability to get the users window size and create enough pizzas to onl
 
   These optimizations allowed for the moving pizzas to render at 60fps while the scroll event is happening.
 
-5. The resizePizza function made quite a bit of calculations, so it was pretty slow to change the size, avg. *300-400 ms*. I first started with console.log on all of the calculations. 
+5. The resizePizzas function made quite a bit of calculations, so it was pretty slow to change the size, avg. *300-400 ms*. I first started with console.log on all of the calculations.
 
-I noticed that most of these numbers were repeating and in some cases *(`var dx`)*, they were unnecessary. I eliminated all of the slow calculations and changed the resize calculation to use percentages. I started by eliminating these calculations. It made for a very clean function. The code that was removed was:
+  I noticed that most of these numbers were repeating and in some cases *(`var dx`)*, they were unnecessary. I eliminated all of the slow calculations and changed the resize calculation to use percentages. I started by eliminating these calculations. It made for a very clean function. The code that was removed was:
 
     ```
     function determineDx (elem, size) {
